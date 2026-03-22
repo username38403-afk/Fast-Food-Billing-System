@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Authentication - Fast Food Billing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2d9b4f6d4.js" crossorigin="anonymous"></script>
+</head>
+<body data-page="user-auth">
+  <button class="settings-btn" id="settingsBtn" title="Settings" style="position:fixed;top:20px;right:20px;z-index:1000"><i class="fas fa-cog"></i></button>
+  
+  <!-- Settings Modal -->
+  <div class="settings-modal" id="settingsModal">
+    <div class="settings-panel">
+      <div class="settings-header">
+        <h3>Settings</h3>
+        <button class="settings-close" id="settingsClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="settings-content">
+        <div class="settings-section">
+          <h4>Theme</h4>
+          <div class="theme-toggle-container">
+            <label for="checkbox-user-auth">Dark Mode</label>
+            <label class="theme-switch" for="checkbox-user-auth">
+              <input type="checkbox" id="checkbox-user-auth" class="checkbox-input" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-wrapper">
+    <div class="auth-card glass">
+      <h2>User Access</h2>
+      <div class="tabs">
+        <button class="tab active" data-tab="signin">Sign In</button>
+        <button class="tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <form id="signinForm" class="form active">
+        <div class="input-group">
+          <label>Username or Email</label>
+          <input id="signinUser" type="text" required placeholder="Username or Email">
+        </div>
+        <div class="input-group password">
+          <label>Password</label>
+          <input id="signinPass" type="password" required placeholder="Password">
+          <button type="button" class="show-pass"> <i class="fas fa-eye"></i></button>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary ripple">Sign In</button>
+          <a href="index.html" class="btn link">Back</a>
+        </div>
+      </form>
+
+      <form id="signupForm" class="form">
+        <div class="input-grid">
+          <div class="input-group"><label>Name</label><input id="suName" type="text" required></div>
+          <div class="input-group"><label>Email</label><input id="suEmail" type="email" required></div>
+          <div class="input-group"><label>Username</label><input id="suUser" type="text" required></div>
+          <div class="input-group password"><label>Password</label><input id="suPass" type="password" required><button type="button" class="show-pass"><i class="fas fa-eye"></i></button></div>
+          <div class="input-group password"><label>Confirm Password</label><input id="suPass2" type="password" required><button type="button" class="show-pass"><i class="fas fa-eye"></i></button></div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary ripple">Create Account</button>
+          <a href="index.html" class="btn link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

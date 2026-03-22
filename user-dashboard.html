@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Dashboard - Fast Food Billing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2d9b4f6d4.js" crossorigin="anonymous"></script>
+</head>
+<body data-page="user-dashboard">
+  <aside class="sidebar glass" id="sidebar">
+    <div class="sidebar-top">
+      <h3>Welcome</h3>
+      <p id="currentUserName" class="muted">Guest</p>
+    </div>
+    <nav class="side-nav">
+      <a class="side-link active" data-section="menu"><i class="fas fa-th-large"></i> Menu</a>
+      <a class="side-link" data-section="cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+      <a class="side-link" data-section="receipt"><i class="fas fa-receipt"></i> Receipt</a>
+      <a class="side-link" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main class="dashboard">
+    <header class="dash-header glass" id="dashboardHeader">
+      <div id="headerTitle">
+        <h2>Menu</h2>
+        <p class="muted">Browse and add items to your cart</p>
+      </div>
+      <div class="dash-actions" id="headerActions">
+        <input id="searchInput" class="search" placeholder="Search items...">
+        <select id="categoryFilter"><option value="all">All Categories</option></select>
+        <button class="settings-btn" id="settingsBtn" title="Settings"><i class="fas fa-cog"></i></button>
+      </div>
+    </header>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+      <div class="settings-panel">
+        <div class="settings-header">
+          <h3>Settings</h3>
+          <button class="settings-close" id="settingsClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="settings-content">
+          <!-- Profiles List Section (All Profiles) -->
+          <div class="settings-section">
+            <h4>All Profiles</h4>
+            <div class="profiles-list" id="profilesList">
+              <p class="no-profiles-msg">No profiles found</p>
+            </div>
+          </div>
+
+          <!-- Theme Section -->
+          <div class="settings-section">
+            <h4>Theme</h4>
+            <div class="theme-toggle-container">
+              <label for="checkbox">Dark Mode</label>
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" class="checkbox-input" />
+                <div class="slider round"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="edit-profile-modal" id="editProfileModal">
+      <div class="edit-profile-container">
+        <div class="edit-profile-header">
+          <h3>Edit Profile</h3>
+          <button class="edit-profile-close" id="editProfileClose"><i class="fas fa-times"></i></button>
+        </div>
+        <form class="edit-profile-content" id="editProfileForm">
+          <div class="edit-form-group">
+            <label for="editName"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="editName" placeholder="Enter your name" required>
+          </div>
+          <div class="edit-form-group">
+            <label for="editEmail"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="editEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="edit-form-group">
+            <label for="editUsername"><i class="fas fa-at"></i> Username</label>
+            <input type="text" id="editUsername" placeholder="Enter username" required>
+          </div>
+          <div class="edit-form-group">
+            <label for="editPassword"><i class="fas fa-lock"></i> Password</label>
+            <input type="password" id="editPassword" placeholder="Enter new password (or leave blank)">
+            <div class="password-strength" id="passwordStrength" style="display:none">
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+            </div>
+          </div>
+          <div class="edit-form-actions">
+            <button type="submit" class="btn btn-save"><i class="fas fa-save"></i> Save Changes</button>
+            <button type="button" class="btn btn-cancel" id="editProfileCancelBtn"><i class="fas fa-times"></i> Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div class="confirm-dialog" id="confirmDialog">
+      <div class="confirm-dialog-box">
+        <h3 id="confirmTitle">Confirm Action</h3>
+        <p id="confirmMessage">Are you sure you want to proceed?</p>
+        <p class="confirm-dialog-warning" id="confirmWarning" style="display:none"></p>
+        <div class="confirm-dialog-actions">
+          <button class="btn-confirm" id="confirmYes"><i class="fas fa-check"></i> Confirm</button>
+          <button class="btn-cancel" id="confirmNo"><i class="fas fa-times"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="menuSection" class="section grid cols-3" aria-live="polite"></section>
+
+    <section id="cartSection" class="section cart-section hidden">
+      <h3>Your Cart</h3>
+      <div id="cartList"></div>
+      <div class="bill glass">
+        <div class="bill-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+        <div class="bill-row"><span>Tax (10%)</span><span id="tax">₹0</span></div>
+        <div class="bill-row"><span>Discount</span><span id="discount">₹0</span></div>
+        <div class="bill-row grand"><span>Grand Total</span><span id="grand">₹0</span></div>
+        <div class="cart-actions"><button id="checkoutBtn" class="btn primary ripple">Checkout</button><button id="clearCart" class="btn outline ripple">Clear</button></div>
+      </div>
+    </section>
+
+    <section id="receiptSection" class="section hidden">
+      <h3>Receipt</h3>
+      <div id="orderHistory" class="glass" style="padding:12px;margin-bottom:12px"></div>
+      <div id="receiptArea" class="receipt glass"></div>
+      <div class="receipt-actions"><button id="printBtn" class="btn primary ripple">Print</button><button id="downloadTxt" class="btn outline ripple">Download as Text</button><button id="downloadPdf" class="btn primary ripple">Download PDF</button></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

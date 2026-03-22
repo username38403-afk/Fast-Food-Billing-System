@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fast Food Billing System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2d9b4f6d4.js" crossorigin="anonymous"></script>
+</head>
+<body data-page="index">
+  <header class="topbar glass">
+    <div class="brand">
+      <div class="logo">🍔</div>
+      <div>
+        <h1>Fast Food Billing</h1>
+        <p class="muted">Modern POS for quick-service restaurants</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="user-auth.html">User</a>
+      <a href="admin-auth.html">Admin</a>
+      <button class="settings-btn" id="settingsBtn" title="Settings"><i class="fas fa-cog"></i></button>
+    </nav>
+  </header>
+
+  <!-- Settings Modal -->
+  <div class="settings-modal" id="settingsModal">
+    <div class="settings-panel">
+      <div class="settings-header">
+        <h3>Settings</h3>
+        <button class="settings-close" id="settingsClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="settings-content">
+        <div class="settings-section">
+          <h4>Theme</h4>
+          <div class="theme-toggle-container">
+            <label for="checkbox-home">Dark Mode</label>
+            <label class="theme-switch" for="checkbox-home">
+              <input type="checkbox" id="checkbox-home" class="checkbox-input" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="hero">
+    <div class="hero-inner">
+      <h2>Delicious. Fast. Reliable.</h2>
+      <p class="lead">A lightweight fast-food billing system — sign in to order or manage the menu.</p>
+      <div class="hero-actions">
+        <a class="btn primary ripple" href="user-auth.html">Order Now</a>
+        <a class="btn outline ripple" href="admin-auth.html">Admin Panel</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="card glass">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3ed477da2bf8d3a8f1f86c1f7c6fdbef" alt="burger" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/800x600?text=Signature+Burger';">
+        <div class="card-info">
+          <h3>Signature Burger</h3>
+          <p class="muted">Starting at ₹199</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="features">
+    <h3>Features</h3>
+    <div class="grid cols-3">
+      <div class="feature glass"><i class="fas fa-utensils fa-2x"></i><h4>Menu Management</h4><p>Admin CRUD for items with images and categories.</p></div>
+      <div class="feature glass"><i class="fas fa-shopping-cart fa-2x"></i><h4>Cart & Billing</h4><p>Real-time totals, tax, discounts, and receipts.</p></div>
+      <div class="feature glass"><i class="fas fa-user-shield fa-2x"></i><h4>Secure Auth</h4><p>Client-side auth with validations and sessions.</p></div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h3>About Fast Food Billing System</h3>
+    <div class="about-container">
+      <div class="about-section">
+        <h4><i class="fas fa-target"></i> Our Mission</h4>
+        <p>We empower quick-service restaurants with lightweight, modern billing solutions that streamline operations, reduce wait times, and enhance customer experience. Our cloud-ready POS system puts control in your hands.</p>
+      </div>
+      <div class="about-section">
+        <h4><i class="fas fa-star"></i> Why Choose Us?</h4>
+        <ul>
+          <li><strong>Zero Setup:</strong> No servers, no backend—everything runs locally in your browser.</li>
+          <li><strong>Beautiful UI:</strong> Modern glassmorphism design with smooth animations.</li>
+          <li><strong>Full Control:</strong> Manage inventory, orders, and customers in real-time.</li>
+          <li><strong>Global Access:</strong> Light/dark theme, responsive design for any device.</li>
+          <li><strong>Smart Billing:</strong> Automatic tax calculation, discounts, PDF receipts.</li>
+        </ul>
+      </div>
+      <div class="about-section">
+        <h4><i class="fas fa-cogs"></i> Built With Modern Tech</h4>
+        <p><strong>HTML5</strong> • <strong>CSS3</strong> • <strong>Vanilla JavaScript</strong> • <strong>LocalStorage</strong> • <strong>FontAwesome Icons</strong> • <strong>Google Fonts</strong></p>
+        <p style="margin-top:8px;font-size:0.9rem;color:var(--muted)">No frameworks, no dependencies—pure web standards for maximum compatibility.</p>
+      </div>
+      <div class="about-section">
+        <h4><i class="fas fa-phone"></i> Get in Touch</h4>
+        <p><strong>Email:</strong> support@fastfoodbilling.com<br><strong>Phone:</strong> +91 98765 43210<br><strong>Hours:</strong> 9 AM - 9 PM IST</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Footer -->
+  <footer class="footer glass">
+    <div class="footer-container">
+      <!-- Brand & Contact -->
+      <div class="footer-section">
+        <div class="footer-brand">
+          <div style="font-size:32px;margin-bottom:8px">🍔</div>
+          <h4 style="margin:0 0 8px 0;color:var(--primary)">Fast Food Billing</h4>
+          <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Modern POS for quick-service restaurants</p>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h4 style="color:var(--primary);margin-top:0">Quick Links</h4>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="margin:8px 0"><a href="#" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-arrow-right" style="color:var(--accent);margin-right:8px"></i>Home</a></li>
+          <li style="margin:8px 0"><a href="user-auth.html" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-arrow-right" style="color:var(--accent);margin-right:8px"></i>Place Order</a></li>
+          <li style="margin:8px 0"><a href="admin-auth.html" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-arrow-right" style="color:var(--accent);margin-right:8px"></i>Admin Panel</a></li>
+          <li style="margin:8px 0"><a href="#" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-arrow-right" style="color:var(--accent);margin-right:8px"></i>About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Support & Help -->
+      <div class="footer-section">
+        <h4 style="color:var(--primary);margin-top:0">Support & Help</h4>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="margin:8px 0"><a href="#" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-headset" style="color:var(--accent);margin-right:8px"></i>Customer Support</a></li>
+          <li style="margin:8px 0"><a href="#" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-question-circle" style="color:var(--accent);margin-right:8px"></i>FAQ</a></li>
+          <li style="margin:8px 0"><a href="#" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-book" style="color:var(--accent);margin-right:8px"></i>Documentation</a></li>
+          <li style="margin:8px 0"><a href="#" style="color:var(--text-muted);text-decoration:none;transition:all 0.2s"><i class="fas fa-comments" style="color:var(--accent);margin-right:8px"></i>Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="footer-section">
+        <h4 style="color:var(--primary);margin-top:0">Contact Us</h4>
+        <div style="margin:8px 0;color:var(--text-muted)">
+          <p style="margin:6px 0"><i class="fas fa-envelope" style="color:var(--primary);margin-right:8px"></i><strong>Email:</strong> support@fastfoodbilling.com</p>
+          <p style="margin:6px 0"><i class="fas fa-phone" style="color:var(--primary);margin-right:8px"></i><strong>Phone:</strong> +91 00000 00000</p>
+          <p style="margin:6px 0"><i class="fas fa-clock" style="color:var(--primary);margin-right:8px"></i><strong>Hours:</strong> 9 AM - 9 PM IST</p>
+          <p style="margin:6px 0"><i class="fas fa-map-marker-alt" style="color:var(--primary);margin-right:8px"></i><strong>Address:</strong> Fast Food HQ, India</p>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h4 style="color:var(--primary);margin-top:0">Follow Us</h4>
+        <div style="display:flex;gap:12px;margin-top:12px">
+          <a href="#" class="social-icon" title="Facebook" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" class="social-logo"></a>
+          <a href="#" class="social-icon" title="Twitter" aria-label="Twitter"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" class="social-logo"></a>
+          <a href="#" class="social-icon" title="Instagram" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="social-logo"></a>
+          <a href="#" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="social-logo"></a>
+          <a href="#" class="social-icon" title="YouTube" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" class="social-logo"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div style="text-align:center;padding:16px;border-top:1px solid rgba(255,255,255,0.1)">
+        <p style="margin:0 0 12px 0;font-size:0.9rem;color:var(--text-muted)">© 2026 Fast Food Billing System. All rights reserved.</p>
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0">
+          <a href="#" style="color:var(--primary);text-decoration:none;font-size:0.85rem;transition:all 0.2s">📋 Terms & Conditions</a>
+          <a href="#" style="color:var(--primary);text-decoration:none;font-size:0.85rem;transition:all 0.2s">🔒 Data Privacy Policy</a>
+          <a href="#" style="color:var(--primary);text-decoration:none;font-size:0.85rem;transition:all 0.2s">⚖️ Legal</a>
+          <a href="#" style="color:var(--primary);text-decoration:none;font-size:0.85rem;transition:all 0.2s">🍪 Cookie Policy</a>
+        </div>
+        <p style="margin:12px 0 0 0;font-size:0.8rem;color:var(--text-muted)">Developed with <i class="fas fa-heart" style="color:var(--primary)"></i> for restaurants worldwide</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick order removed as requested -->
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
